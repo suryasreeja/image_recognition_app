@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Image Recognition App</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; padding: 1rem; }
+    .card { padding: 1rem; border: 1px solid #eee; border-radius: 8px; margin-bottom: 1rem; }
+    img.preview { max-width: 100%; height: auto; display:block; margin-bottom: 1rem; border-radius: 8px; }
+    button { padding: 0.4rem 0.8rem; margin-left: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Image Recognition App</h1>
+  <div class="card">
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" required />
+      <button type="submit">Upload & Predict</button>
+    </form>
+  </div>
+
+  {% if filename %}
+  <h2>Result</h2>
+  <div class="card">
+    <img class="preview" src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded image" />
+    <h3>Top Predictions</h3>
+    <ul>
+      {% for name, score in predictions %}
+        <li><strong>{{ "{:.2f}%".format(score * 100) }}</strong> — {{ name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</body>
+</html>
