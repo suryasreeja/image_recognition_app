@@ -3,7 +3,7 @@
 A simple and powerful **Image Recognition Web Application** built using **Python, Flask, and TensorFlow (MobileNetV2)**.  
 This app allows users to upload an image and get the **top 5 predicted objects** along with confidence scores.
 
-🚀 **Live Demo:** *(Add your Render URL after deployment)*  
+🚀 **Live Demo:** https://image-recognition-app-b5sl.onrender.com
 
 ---
 
